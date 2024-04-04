@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Your Dashboard</h1>
+    <a href="/student-request">Booking request</a>
+    <a href="/lecturer/history">Log History</a>
+
+
+    <h1>Lecturer Dashboard</h1>
+    <h2>Slot Status</h2>
+    <p>Free Slots: <%= freeSlots %></p>
+    <p>Pending Slots: <%= pendingSlots %></p>
+    <p>Reserved Slots: <%= reservedSlots %></p>
+    <h2>Room Status</h2>
+    <p>Disabled Rooms: <%= disabledRooms %></p>
+
+    <div>
+        <a href="/logout">Logout</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Slot</title>
+</head>
+<body>
+    <h1>Edit Slot</h1>
+    <form action="/staff/editslot/<%= slot.id %>" method="POST">
+        <label for="startTime">Start Time:</label>
+        <input type="time" id="startTime" name="startTime" value="<%= slot.start_time %>" required>
+        <label for="endTime">End Time:</label>
+        <input type="time" id="endTime" name="endTime" value="<%= slot.end_time %>" required>
+        <!-- Add additional input fields as needed -->
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

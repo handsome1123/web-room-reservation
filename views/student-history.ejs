@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History</title>
+</head>
+<body>
+    <h1>Booking History</h1>
+    <ul>
+        <% bookings.forEach(booking => { %>
+            <li>
+                <strong>Booking ID: <%= booking.id %></strong><br>
+                Room Name: <%= booking.room_name %><br>
+                Time Slot: <%= booking.start_time %> - <%= booking.end_time %><br>
+                Objective: <%= booking.objective %><br>
+                Status: <%= booking.status %><br>
+                <hr>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

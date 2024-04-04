@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+</head>
+<body>
+    <h1>Booking Form</h1>
+    <p>Room Name: <%= roomName %></p>
+    
+    <p>Selected Time Slot: <%= startTime %> - <%= endTime %></p>
+
+    <!-- Include additional form fields as needed -->
+    <!-- For example, fields for student name, email, etc. -->
+    <form action="/bookings" method="POST">
+        <input type="hidden" name="roomId" value="<%= roomId %>">
+        <input type="hidden" name="slotId" value="<%= slotId %>">
+        <input type="hidden" name="userId" value="<%= userId %>">
+        <label for="studentName">Objective:</label>
+        <input type="text" id="objective" name="objective" required>
+        <button type="submit">Submit Booking</button>
+    </form>
+</body>
+</html>

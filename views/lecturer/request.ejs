@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Dashboard</title>
+</head>
+<body>
+    <h1>All Bookings</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Room Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% bookings.forEach(booking => { %>
+                <tr>
+                    <td><%= booking.room_name %></td>
+                    <td><%= booking.start_time %></td>
+                    <td><%= booking.end_time %></td>
+                    <td><%= booking.status %></td>
+                    <td>
+                        <% if (booking.status === 'pending') { %>
+                            <form action="/approve-booking" method="POST">
+                                <input type="hidden" name="bookingId" value="<%= booking.id %>">
+                                <button type="submit" name="action" value="approve">Approve</button>
+                            </form>
+                            <form action="/reject-booking" method="POST">
+                                <input type="hidden" name="bookingId" value="<%= booking.id %>">
+                                <button type="submit" name="action" value="reject">Reject</button>
+                            </form>
+                        <% } else { %>
+                            <!-- Display a message or alternative action for approved/rejected bookings -->
+                            <%= booking.status %>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Approval/Rejection History</title>
+</head>
+<body>
+    <h1>Lecturer Approval/Rejection History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Room Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Objective</th>
+                <th>Status</th>
+                <th>Approved By</th>
+                <th>Rejected By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% bookings.forEach(booking => { %>
+                <tr>
+                    <td><%= booking.id %></td>
+                    <td><%= booking.room_name %></td>
+                    <td><%= booking.start_time %></td>
+                    <td><%= booking.end_time %></td>
+                    <td><%= booking.objective %></td>
+                    <td><%= booking.status %></td>
+                    <td><%= booking.approved_by %></td>
+                    <td><%= booking.rejected_by %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Staff Dashboard</h1>
+    <a href="/staff/history">Log History</a>
+    <a href="/staff/addroom">Add</a>
+    <h1>Staff Dashboard</h1>
+    <ul>
+        <% rooms.forEach(room => { %>
+            <li>
+                <strong><%= room.room_name %></strong>
+                <ul>
+                    <% room.timeSlots.forEach(slot => { %>
+                        <li>
+                            <%= slot.start_time %> - <%= slot.end_time %> (Status: <%= slot.status %>)
+                            <a href="/staff/editroom?roomId=<%= room.room_id %>">(Edit)</a>
+                            <a href="/staff/editslot?slotId=<%= slot.id %>">Edit</a>
+
+
+                            <% if (slot.status === 'free') { %>
+                                <form action="/staff/disableroom" method="POST" style="display: inline;">
+                                    <input type="hidden" name="roomId" value="<%= room.room_id %>">
+                                    <input type="hidden" name="slotId" value="<%= slot.id %>">
+                                    <input type="checkbox" name="disableSlot" onchange="this.form.submit()">
+                                    <label>Disable Slot</label>
+                                </form>
+                            <% } else if (slot.status === 'disabled') { %>
+                                <span>(Slot Disabled)</span>
+                            <% } %>
+                        </li>
+                    <% }); %>
+                </ul>
+            </li>
+        <% }); %>
+    </ul>
+    <div>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
